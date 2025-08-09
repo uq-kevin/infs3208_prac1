@@ -88,7 +88,7 @@ def barnsley_fern_one_pass(
     else:
         plt.style.use('default')
 
-    plt.scatter(xs, ys, s=point_size, c=color, marker='.', alpha=0.95, linewidths=0)
+    plt.scatter(xs, ys, s=point_size, c=color, marker='.', alpha=1.0, linewidths=0)
     plt.axis('off')
     plt.gca().set_aspect('equal', adjustable='box')
     plt.tight_layout()
@@ -96,4 +96,10 @@ def barnsley_fern_one_pass(
 
     return xs, ys
 
-barnsley_fern_one_pass()
+thicker_leaves_coeffs = {'a1':0,'b1':0,'c1':0,'d1':0.16,'e1':0,'f1':0,
+          'a2':0.9,'b2':0.03,'c2':-0.03,'d2':0.9,'e2':0,'f2':1.8,
+          'a3':0.25,'b3':-0.3,'c3':0.28,'d3':0.26,'e3':0,'f3':1.7,
+          'a4':-0.15,'b4':0.28,'c4':0.26,'d4':0.24,'e4':0,'f4':0.44}
+
+barnsley_fern_one_pass(n_chains=1_000_000, coeffs=None, color='red')
+
